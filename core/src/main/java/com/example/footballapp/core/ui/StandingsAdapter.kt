@@ -21,7 +21,8 @@ class StandingsAdapter : RecyclerView.Adapter<StandingsAdapter.LeagueTableViewHo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueTableViewHolder =
-        LeagueTableViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_league_standings, parent, false))
+        LeagueTableViewHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_league_standings, parent, false))
 
     override fun onBindViewHolder(holder: LeagueTableViewHolder, position: Int) {
         val data = listTeamStandings[position]
