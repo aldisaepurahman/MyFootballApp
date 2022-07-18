@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Football App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_standings">Standings</string>
+    <string name="title_standings">Module Title</string>
+    <string name="lbl_league">League</string>
+    <string name="warning_teams">No Teams In This Competition</string>
+    <string name="lbl_team_title">Teams</string>
+    <string name="team_logo">Team Logo</string>
+    <string name="team_name">Team Name</string>
+    <string name="team_league_name">League Name</string>
+    <string name="lbl_stadium">Stadium</string>
+    <string name="stadium_name">Stadium Name</string>
+    <string name="lbl_description">Description</string>
+    <string name="team_description">Team Description</string>
+    <string name="lbl_formed_year">Formed Year</string>
+    <string name="formed_year">Year</string>
+    <string name="favorite">Favorite</string>
+
+    <string name="no_description">No Description</string>
+    <string name="no_formed_year">No Year Formed</string>
+    <string name="no_league_name">No League Name</string>
+    <string name="no_stadium_name">No Stadium Name</string>
+    <string name="no_favorite_teams">No Favorite Teams</string>
+    <string name="your_favorite">Your Favorite</string>
+
+    <string name="no_standings">No Standings In This Competition</string>
+    <string name="lbl_standings">Standings</string>
+</resources>
