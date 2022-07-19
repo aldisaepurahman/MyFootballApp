@@ -82,9 +82,9 @@ class StandingsFragment : Fragment() {
     private fun setSpinnerLeague(league: List<League>?) {
         val leagueName = ArrayList<String>()
         val leagueId = ArrayList<String>()
-        league?.forEach {
-            leagueName.add(it.name)
-            leagueId.add(it.leagueId)
+        for (i in league?.indices!!) {
+            leagueName.add(league[i].name)
+            leagueId.add(league[i].leagueId)
         }
 
         with(binding) {
