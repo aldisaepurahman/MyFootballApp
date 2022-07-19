@@ -8,14 +8,15 @@ import com.example.footballapp.core.domain.model.League
 import com.example.footballapp.core.domain.model.Standings
 import com.example.footballapp.core.domain.model.Team
 import com.example.footballapp.core.domain.repository.IFootballRepository
-import com.example.footballapp.core.utils.AppExecutors
 import com.example.footballapp.core.utils.DataMapping
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 class FootballRepository(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
+    private val localDataSource: LocalDataSource
 ) : IFootballRepository {
     override fun getAllTeamOnLeague(leagueName: String): Flow<Result<List<Team>>> =
         object : NetworkBoundResult<List<Team>, List<TeamResponse>>() {
@@ -33,7 +34,7 @@ class FootballRepository(
 
             override suspend fun saveCallResult(data: List<TeamResponse>) {
                 val teamList = DataMapping.mapResponsesToEntities(data)
-                appExecutors.diskIO().execute { localDataSource.insertTeam(teamList) }
+                CoroutineScope(Dispatchers.IO).launch { localDataSource.insertTeam(teamList) }
             }
         }.asFlow()
 
@@ -51,9 +52,6 @@ class FootballRepository(
             emit(Result.Error(e.message.toString()))
         }
     }
-        /*remoteDataSource.getLeagueStandings(leagueId).map {
-            DataMapping.mapStandingsResponseToStandingsDomain(it)
-        }*/
 
     override fun getFavoritesTeam(): Flow<List<Team>> =
         localDataSource.getFavoritesTeam().map {
@@ -62,6 +60,6 @@ class FootballRepository(
 
     override fun setFavoriteTeam(team: Team, state: Boolean) {
         val teamEntity = DataMapping.mapDomainToEntity(team)
-        appExecutors.diskIO().execute { localDataSource.updateFavoriteTeam(teamEntity, state) }
+        CoroutineScope(Dispatchers.IO).launch { localDataSource.updateFavoriteTeam(teamEntity, state) }
     }
 }

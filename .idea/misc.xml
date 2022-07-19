@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/KULIAH/Bangkit/AndroidSubmission/FootballApp/app/src/main/res/layout/activity_detail_team.xml" value="0.2" />
+        <entry key="..\:/KULIAH/Bangkit/AndroidSubmission/FootballApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.27447916666666666" />
+        <entry key="..\:/KULIAH/Bangkit/AndroidSubmission/FootballApp/app/src/main/res/layout/fragment_standings.xml" value="0.1125" />
+        <entry key="..\:/KULIAH/Bangkit/AndroidSubmission/FootballApp/core/src/main/res/layout/item_league_standings.xml" value="0.1125" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

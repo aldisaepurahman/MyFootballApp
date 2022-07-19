@@ -33,4 +33,10 @@
 
     <string name="no_standings">No Standings In This Competition</string>
     <string name="lbl_standings">Standings</string>
+    <string name="lbl_played">P</string>
+    <string name="lbl_win">W</string>
+    <string name="lbl_lose">L</string>
+    <string name="lbl_goal_difference">GD</string>
+    <string name="lbl_points">Pt</string>
+    <string name="lbl_draw">D</string>
 </resources>
