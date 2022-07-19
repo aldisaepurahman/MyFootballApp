@@ -80,8 +80,8 @@ class HomeFragment : Fragment() {
 
     private fun setSpinnerLeague(league: List<League>?) {
         val leagueName = ArrayList<String>()
-        league?.forEach {
-            leagueName.add(it.name)
+        for (i in league?.indices!!) {
+            leagueName.add(league[i].name)
         }
 
         with(binding) {
