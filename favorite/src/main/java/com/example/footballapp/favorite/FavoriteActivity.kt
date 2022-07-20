@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.footballapp.core.domain.model.Team
 import com.example.footballapp.core.ui.TeamsAdapter
 import com.example.footballapp.favorite.di.favoriteModule
 import com.example.footballapp.favorite.databinding.ActivityFavoriteBinding
@@ -29,11 +30,11 @@ class FavoriteActivity : AppCompatActivity() {
         supportActionBar?.title = "Favorite"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, com.example.footballapp.R.color.teal_700)))
 
-        val teamsAdapter = TeamsAdapter{ team ->
+        val teamsAdapter = TeamsAdapter({ team ->
             val intent = Intent(this, DetailTeamActivity::class.java)
             intent.putExtra(DetailTeamActivity.TEAM, team)
             startActivity(intent)
-        }
+        }, listOf(Team(teamId = "-1")))
         with(binding.rvTeamsFavorite) {
             layoutManager = GridLayoutManager(applicationContext, 2)
             setHasFixedSize(true)

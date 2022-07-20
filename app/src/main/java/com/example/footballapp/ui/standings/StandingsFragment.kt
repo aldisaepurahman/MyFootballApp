@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.footballapp.core.data.Result
 import com.example.footballapp.core.domain.model.League
+import com.example.footballapp.core.domain.model.Standings
 import com.example.footballapp.core.ui.StandingsAdapter
 import com.example.footballapp.databinding.FragmentStandingsBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -44,7 +45,8 @@ class StandingsFragment : Fragment() {
     }
 
     private fun setLeagueStandings() {
-        val standingsAdapter = StandingsAdapter()
+        val listStandings = listOf(Standings())
+        val standingsAdapter = StandingsAdapter(listStandings)
         with(binding.rvLeagueTable) {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = standingsAdapter

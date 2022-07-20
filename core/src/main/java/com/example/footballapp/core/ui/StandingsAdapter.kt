@@ -3,26 +3,35 @@ package com.example.footballapp.core.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.footballapp.core.R
 import com.example.footballapp.core.databinding.ItemLeagueStandingsBinding
 import com.example.footballapp.core.domain.model.Standings
 
-class StandingsAdapter : RecyclerView.Adapter<StandingsAdapter.LeagueTableViewHolder>() {
+class StandingsAdapter(listStandings: List<Standings>) : RecyclerView.Adapter<StandingsAdapter.LeagueTableViewHolder>() {
 
     private val listTeamStandings = ArrayList<Standings>()
 
+    init {
+        listTeamStandings.addAll(listStandings)
+    }
+
     fun setData(standings: List<Standings>?) {
         if (standings == null) return
+        val diffResult = DiffUtil.calculateDiff(setupCallback(this.listTeamStandings, standings))
+
         listTeamStandings.clear()
         listTeamStandings.addAll(standings)
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueTableViewHolder =
-        LeagueTableViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_league_standings, parent, false))
+        LeagueTableViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_league_standings, parent, false)
+        )
 
     override fun onBindViewHolder(holder: LeagueTableViewHolder, position: Int) {
         val data = listTeamStandings[position]
@@ -50,6 +59,20 @@ class StandingsAdapter : RecyclerView.Adapter<StandingsAdapter.LeagueTableViewHo
                 tvGoalDifferenceTableHeader.text = data.intGoalDifference ?: "0"
                 tvPointsTableItem.text = data.intPoints ?: "0"
             }
+        }
+    }
+
+    companion object {
+        fun setupCallback(oldList: List<Standings>, newList: List<Standings>) = object : DiffUtil.Callback() {
+            override fun getOldListSize(): Int = oldList.size
+
+            override fun getNewListSize(): Int = newList.size
+
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+                oldList[oldItemPosition].strTeam == newList[newItemPosition].strTeam
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+                oldList[oldItemPosition] == newList[newItemPosition]
         }
     }
 }

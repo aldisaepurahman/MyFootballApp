@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.footballapp.R
 import com.example.footballapp.core.data.Result
 import com.example.footballapp.core.domain.model.League
+import com.example.footballapp.core.domain.model.Team
 import com.example.footballapp.core.ui.TeamsAdapter
 import com.example.footballapp.databinding.FragmentHomeBinding
 import com.example.footballapp.ui.detail.DetailTeamActivity
@@ -43,11 +44,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val teamsAdapter = TeamsAdapter{ team ->
+            val teamsAdapter = TeamsAdapter({ team ->
                 val intent = Intent(activity, DetailTeamActivity::class.java)
                 intent.putExtra(DetailTeamActivity.TEAM, team)
                 startActivity(intent)
-            }
+            }, listOf(Team(teamId = "-1")))
             with(binding.rvTeams) {
                 layoutManager = GridLayoutManager(requireContext(), 2)
                 setHasFixedSize(true)
