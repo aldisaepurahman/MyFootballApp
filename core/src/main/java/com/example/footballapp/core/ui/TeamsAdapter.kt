@@ -46,6 +46,7 @@ class TeamsAdapter(private val onClick: (Team) -> Unit, listTeam: List<Team>) : 
                     .load(data.logo)
                     .into(teamLogo)
                 teamName.text = data.name
+                teamStadiumLocation.text = data.stadiumLocation
 
                 root.setOnClickListener {
                     onClick(data)

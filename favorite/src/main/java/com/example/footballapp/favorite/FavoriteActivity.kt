@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.footballapp.core.domain.model.Team
 import com.example.footballapp.core.ui.TeamsAdapter
 import com.example.footballapp.favorite.di.favoriteModule
@@ -36,7 +36,7 @@ class FavoriteActivity : AppCompatActivity() {
             startActivity(intent)
         }, listOf(Team(teamId = "-1")))
         with(binding.rvTeamsFavorite) {
-            layoutManager = GridLayoutManager(applicationContext, 2)
+            layoutManager = LinearLayoutManager(applicationContext)
             setHasFixedSize(true)
             adapter = teamsAdapter
         }

@@ -53,9 +53,9 @@ class StandingsAdapter(listStandings: List<Standings>) : RecyclerView.Adapter<St
 
                 tvTeamNameItem.text = data.strTeam
                 tvPlayedTableItem.text = data.intPlayed ?: "0"
-                tvWinTableItem.text = data.intWin ?: "0"
-                tvDrawTableItem.text = data.intDraw ?: "0"
-                tvLoseTableItem.text = data.intLoss ?: "0"
+//                tvWinTableItem.text = data.intWin ?: "0"
+//                tvDrawTableItem.text = data.intDraw ?: "0"
+//                tvLoseTableItem.text = data.intLoss ?: "0"
                 tvGoalDifferenceTableHeader.text = data.intGoalDifference ?: "0"
                 tvPointsTableItem.text = data.intPoints ?: "0"
             }

@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.footballapp.R
 import com.example.footballapp.core.data.Result
 import com.example.footballapp.core.domain.model.League
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
                 startActivity(intent)
             }, listOf(Team(teamId = "-1")))
             with(binding.rvTeams) {
-                layoutManager = GridLayoutManager(requireContext(), 2)
+                layoutManager = LinearLayoutManager(requireContext())
                 setHasFixedSize(true)
                 adapter = teamsAdapter
             }

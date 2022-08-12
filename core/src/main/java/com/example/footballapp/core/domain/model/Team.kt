@@ -8,6 +8,7 @@ data class Team(
     val teamId: String,
     val name: String? = null,
     val description: String? = null,
+    val stadiumLocation: String? = null,
     val formedYear: String? = null,
     val stadium: String? = null,
     val logo: String? = null,

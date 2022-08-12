@@ -44,6 +44,7 @@ object DataMapping {
             TeamEntity(
                 teamId = it.idTeam,
                 name = it.strTeam,
+                stadiumLocation = it.strStadiumLocation,
                 description = it.strDescriptionEN,
                 formedYear = it.intFormedYear,
                 stadium = it.strStadium,
@@ -57,6 +58,7 @@ object DataMapping {
             Team(
                 teamId = it.teamId,
                 name = it.name,
+                stadiumLocation = it.stadiumLocation,
                 description = it.description,
                 formedYear = it.formedYear,
                 stadium = it.stadium,
@@ -69,6 +71,7 @@ object DataMapping {
     fun mapDomainToEntity(input: Team): TeamEntity = TeamEntity(
         teamId = input.teamId,
         name = input.name,
+        stadiumLocation = input.stadiumLocation,
         description = input.description,
         formedYear = input.formedYear,
         stadium = input.stadium,

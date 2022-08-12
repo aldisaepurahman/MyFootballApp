@@ -3,4 +3,7 @@
     <string name="team_logo">Team Logo</string>
     <string name="team_name">Team Name</string>
     <string name="initial_standings">1</string>
+    <string name="team_stadium_location">Stadium Location</string>
+    <string name="favorite_action">Favorite</string>
+    <string name="unfavorite_action">Unfavorite</string>
 </resources>

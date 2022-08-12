@@ -16,6 +16,9 @@ data class TeamResponse(
     @field:SerializedName("idTeam")
     val idTeam: String,
 
+    @field:SerializedName("strStadiumLocation")
+    val strStadiumLocation: String? = null,
+
     @field:SerializedName("strDescriptionEN")
     val strDescriptionEN: String? = null,
 

@@ -18,6 +18,9 @@ data class TeamEntity(
     @ColumnInfo(name = "description")
     var description: String? = null,
 
+    @ColumnInfo(name = "stadiumLocation")
+    var stadiumLocation: String? = null,
+
     @ColumnInfo(name = "formedYear")
     var formedYear: String? = null,
 
